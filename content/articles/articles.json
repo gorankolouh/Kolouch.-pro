@@ -1,0 +1,183 @@
+[
+  {
+    "id": 1,
+    "slug": "the-enforcement-gap",
+    "title": "The Enforcement Gap",
+    "category": "platform-accountability",
+    "categoryLabel": "Platform Accountability",
+    "date": "July 2026",
+    "readTime": "14 min read",
+    "excerpt": "Europe has the most advanced digital-safety framework in the world on paper. Eighteen months into active enforcement, the DSA's entire fine record is two decisions — while the tools built to fix that sit unused in the statute book.",
+    "image": "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=800&q=80",
+    "tags": [
+      "Digital Services Act",
+      "Platform Accountability",
+      "Enforcement"
+    ],
+    "mdFile": "content/articles/the-enforcement-gap.md",
+    "featured": true
+  },
+  {
+    "id": 2,
+    "slug": "the-blind-spot-in-europes-child-safety-law",
+    "title": "The Blind Spot in Europe's Child Safety Law",
+    "category": "child-safety",
+    "categoryLabel": "Child Safety & Digital Rights",
+    "date": "July 2026",
+    "readTime": "9 min read",
+    "excerpt": "Article 34(1)(b) of the Digital Services Act names non-discrimination and children's rights in the same clause — but the Commission's Article 28 guidelines on protecting minors operate through identity-neutral categories, with no requirement to disaggregate harm by protected characteristic.",
+    "image": "images/cover-child-safety.jpg",
+    "tags": [
+      "Digital Services Act",
+      "Child Protection",
+      "Non-Discrimination"
+    ],
+    "mdFile": "content/articles/the-blind-spot-in-europes-child-safety-law.md",
+    "featured": true
+  },
+  {
+    "id": 3,
+    "slug": "the-fine-that-missed-the-point",
+    "title": "The Fine That Missed the Point",
+    "category": "platform-accountability",
+    "categoryLabel": "Platform Accountability",
+    "date": "July 2026",
+    "readTime": "10 min read",
+    "excerpt": "The EU's €120 million fine against X addressed advertising transparency. The far more consequential violation — a documented, billion-view amplification pattern — has not been charged under Articles 34–35 of the DSA. Here's the legal case for why it should be.",
+    "image": "images/cover-fine-missed-point.jpg",
+    "tags": [
+      "Digital Services Act",
+      "Platform Accountability",
+      "X Corp"
+    ],
+    "mdFile": "content/articles/the-fine-that-missed-the-point.md",
+    "featured": false
+  },
+  {
+    "id": 4,
+    "slug": "the-law-that-punishes-the-women-it-claims-to-protect",
+    "title": "The Law That Punishes the Women It Claims to Protect",
+    "category": "religious-freedom",
+    "categoryLabel": "Religious Freedom",
+    "date": "July 2026",
+    "readTime": "13 min read",
+    "excerpt": "France's face-covering ban was written for perhaps 1,900 women. A decade of enforcement data across ten European countries shows who these laws actually punish — and it isn't who the justification claims.",
+    "image": "images/cover-face-covering.jpg",
+    "tags": [
+      "Religious Freedom",
+      "Gender & Law",
+      "ECHR"
+    ],
+    "mdFile": "content/articles/the-law-that-punishes-the-women-it-claims-to-protect.md",
+    "featured": false
+  },
+  {
+    "id": 5,
+    "slug": "when-the-law-exists-but-cannot-be-reached",
+    "title": "When the Law Exists but Cannot Be Reached",
+    "category": "discrimination",
+    "categoryLabel": "Discrimination",
+    "date": "June 2026",
+    "readTime": "10 min read",
+    "excerpt": "Nearly one in two Muslims in the EU has experienced racial discrimination. Only 6% ever file a complaint. The problem isn't an absence of law — it's an absence of access to it.",
+    "image": "images/cover-muslim-access.jpg",
+    "tags": [
+      "Discrimination",
+      "Human Rights",
+      "Access to Justice"
+    ],
+    "mdFile": "content/articles/when-the-law-exists-but-cannot-be-reached.md",
+    "featured": false
+  },
+  {
+    "id": 6,
+    "slug": "the-name-penalty-in-europe",
+    "title": "The Name Penalty in Europe",
+    "category": "discrimination",
+    "categoryLabel": "Discrimination",
+    "date": "July 2026",
+    "readTime": "11 min read",
+    "excerpt": "Across Europe, a name is often enough to decide whether a CV gets a callback, an application gets a reply, or a family gets flagged for fraud. The evidence for it is no longer anecdotal — it's documented, and in places, government-funded.",
+    "image": "https://images.unsplash.com/photo-1521791136064-7986c2920216?w=800&q=80",
+    "tags": [
+      "Employment Discrimination",
+      "Housing",
+      "Name Bias"
+    ],
+    "mdFile": "content/articles/the-name-penalty-in-europe.md",
+    "featured": false
+  },
+  {
+    "id": 7,
+    "slug": "anti-muslim-discrimination-in-europe",
+    "title": "Anti-Muslim Discrimination in Europe: A Documented Record",
+    "category": "research-projects",
+    "categoryLabel": "Research Projects",
+    "date": "June 2026",
+    "readTime": "20 min read",
+    "excerpt": "Primary FRA survey data, named and sourced incidents of state action against religious practice, the legal reasoning for where these measures fail proportionality, and platform X's documented role in amplifying anti-Muslim narratives to over a billion views.",
+    "image": "https://images.unsplash.com/photo-1591604129939-f1efa4d9f7fa?w=800&q=80",
+    "tags": [
+      "Discrimination",
+      "Religious Freedom",
+      "Human Rights"
+    ],
+    "mdFile": "content/articles/anti-muslim-discrimination-in-europe.md",
+    "featured": true
+  },
+  {
+    "id": 8,
+    "slug": "formal-dsa-complaint-against-x-corp",
+    "title": "Formal DSA Complaint Against X Corp — Articles 34–35",
+    "category": "legal-filings",
+    "categoryLabel": "Legal Filings",
+    "date": "July 2026",
+    "readTime": "8 min read",
+    "excerpt": "The formal complaint filed with the European Commission arguing that X's documented pattern of anti-Muslim content amplification constitutes a failure to meet its systemic-risk obligations under Articles 34–35 of the Digital Services Act.",
+    "image": "https://images.unsplash.com/photo-1495954484750-af469f2f9be5?w=800&q=80",
+    "tags": [
+      "Digital Services Act",
+      "Legal Filing",
+      "X Corp"
+    ],
+    "mdFile": "content/articles/formal-dsa-complaint-against-x-corp.md",
+    "featured": false
+  },
+  {
+    "id": 9,
+    "slug": "formal-submission-minors-discrimination-guidelines",
+    "title": "Formal Submission: Closing the Minors' Discrimination Blind Spot in DSA Guidelines",
+    "category": "legal-filings",
+    "categoryLabel": "Legal Filings",
+    "date": "July 2026",
+    "readTime": "9 min read",
+    "excerpt": "The formal submission to DG CONNECT requesting that the Commission's Article 28 guidelines on protecting minors be revised to require platforms to disaggregate harm data by protected characteristic — the regulatory ask behind The Blind Spot in Europe's Child Safety Law.",
+    "image": "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=800&q=80",
+    "tags": [
+      "Digital Services Act",
+      "Legal Filing",
+      "Child Protection"
+    ],
+    "mdFile": "content/articles/formal-submission-minors-discrimination-guidelines.md",
+    "featured": false
+  },
+  {
+    "id": 10,
+    "slug": "legal-memorandum-dsa-minors-rights-enforcement",
+    "title": "Legal Memorandum: DSA Enforcement Architecture for Minors' Rights",
+    "category": "legal-filings",
+    "categoryLabel": "Legal Filings",
+    "date": "July 2026",
+    "readTime": "3 min read",
+    "excerpt": "The full legal analysis behind the X Corp. complaint and the minors' discrimination submission — an article-by-article DSA enforcement memorandum. Available for licensing; not published in full.",
+    "image": "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=800&q=80",
+    "tags": [
+      "Digital Services Act",
+      "Legal Memorandum",
+      "Licensed Material"
+    ],
+    "mdFile": "content/articles/legal-memorandum-dsa-minors-rights-enforcement.md",
+    "licensedOnly": true,
+    "featured": false
+  }
+]
