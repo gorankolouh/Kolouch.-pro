@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://kolouch.pro/index.html</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>
+  <url><loc>https://kolouch.pro/about.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://kolouch.pro/research.html</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://kolouch.pro/publications.html</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://kolouch.pro/projects.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://kolouch.pro/media.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://kolouch.pro/contact.html</loc><changefreq>yearly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://kolouch.pro/article.html?slug=the-enforcement-gap</loc><changefreq>yearly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://kolouch.pro/article.html?slug=the-blind-spot-in-europes-child-safety-law</loc><changefreq>yearly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://kolouch.pro/article.html?slug=the-fine-that-missed-the-point</loc><changefreq>yearly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://kolouch.pro/article.html?slug=the-law-that-punishes-the-women-it-claims-to-protect</loc><changefreq>yearly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://kolouch.pro/article.html?slug=when-the-law-exists-but-cannot-be-reached</loc><changefreq>yearly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://kolouch.pro/article.html?slug=the-name-penalty-in-europe</loc><changefreq>yearly</changefreq><priority>0.8</priority></url>
+</urlset>
