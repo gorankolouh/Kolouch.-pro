@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Admin Studio — Goran Kolouch</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="icon" type="image/svg+xml" href="../images/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="../images/favicon-32.png">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+</head>
+<body class="studio-body">
+
+  <!-- Password Gate -->
+  <div class="studio-gate" id="studio-gate">
+    <div class="studio-gate-card">
+      <h1>Admin Studio</h1>
+      <p>This unlocks the content editor for this browser session.</p>
+      <div class="studio-field">
+        <label for="gate-password">Password</label>
+        <input type="password" id="gate-password" placeholder="Enter password" autofocus>
+      </div>
+      <button class="btn btn-primary" id="gate-submit" style="width:100%;">Enter Studio</button>
+      <p id="gate-error" style="color:#c0392b; font-size:0.825rem; margin-top:0.75rem; display:none;">Incorrect password.</p>
+      <div class="studio-gate-note">
+        <strong>Heads up:</strong> this is a client-side lock only — it hides the editor from casual visitors, but it is not real security (anyone could read the password out of this page's source). Don't use it to gate anything genuinely sensitive. For real protection, keep this <code>/admin</code> folder out of your deployed site, or password-protect it at the hosting level (Vercel supports this on paid plans).
+      </div>
+    </div>
+  </div>
+
+  <!-- App -->
+  <div class="studio-app" id="studio-app">
+    <div class="studio-topbar">
+      <div class="studio-topbar-brand"><svg viewBox="0 0 48 48" width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="20" cy="20" r="15.5" stroke="currentColor" stroke-width="2.25"/><text x="20" y="27" font-family="Playfair Display, Georgia, serif" font-size="18" font-weight="600" fill="currentColor" text-anchor="middle">K</text><line x1="31" y1="31" x2="43" y2="43" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg> Admin Studio</div>
+      <div class="studio-topbar-actions">
+        <a href="../index.html" target="_blank">View site <i class="ri-external-link-line"></i></a>
+        <a href="#" id="gate-lock">Lock</a>
+      </div>
+    </div>
+
+    <div class="studio-tabs">
+      <div class="studio-tab active" data-panel="dashboard">Publications</div>
+      <div class="studio-tab" data-panel="editor">New / Edit</div>
+      <div class="studio-tab" data-panel="categories">Categories</div>
+      <div class="studio-tab" data-panel="media">Media Library</div>
+      <div class="studio-tab" data-panel="export">Export</div>
+    </div>
+
+    <div class="studio-main">
+
+      <!-- Dashboard -->
+      <div class="studio-panel active" id="panel-dashboard">
+        <div class="studio-panel-header">
+          <div>
+            <h2>Publications</h2>
+            <p>Everything currently in your working draft. Nothing here is live until you export and commit it.</p>
+          </div>
+          <button class="btn btn-primary" id="new-pub-btn"><i class="ri-add-line"></i> New Publication</button>
+        </div>
+        <table class="studio-table" id="pub-table">
+          <thead><tr><th>Title</th><th>Category</th><th>Date</th><th>Type</th><th></th></tr></thead>
+          <tbody id="pub-table-body"></tbody>
+        </table>
+        <div class="studio-empty" id="pub-empty" style="display:none;">
+          <i class="ri-file-list-3-line"></i>
+          <p>No publications yet. Create one, or check that your draft loaded correctly.</p>
+        </div>
+      </div>
+
+      <!-- Editor -->
+      <div class="studio-panel" id="panel-editor">
+        <div class="studio-panel-header">
+          <div>
+            <h2 id="editor-heading">New Publication</h2>
+            <p>Fill this in, save to draft, then export when ready to publish.</p>
+          </div>
+        </div>
+
+        <div class="studio-card">
+          <div class="studio-form-grid">
+            <div class="studio-field">
+              <label>Title</label>
+              <input type="text" id="f-title" placeholder="Article title">
+            </div>
+            <div class="studio-field">
+              <label>Slug <span class="hint">(auto-generated, editable)</span></label>
+              <input type="text" id="f-slug" placeholder="article-title">
+            </div>
+          </div>
+
+          <div class="studio-form-grid">
+            <div class="studio-field">
+              <label>Category</label>
+              <select id="f-category"></select>
+            </div>
+            <div class="studio-field">
+              <label>Date <span class="hint">(shown on the site, any format)</span></label>
+              <input type="text" id="f-date" placeholder="e.g. July 2026">
+            </div>
+          </div>
+
+          <div class="studio-form-grid">
+            <div class="studio-field">
+              <label>Read Time</label>
+              <input type="text" id="f-readtime" placeholder="e.g. 9 min read">
+            </div>
+            <div class="studio-field">
+              <label>External URL <span class="hint">(optional — if this article lives elsewhere, e.g. LinkedIn)</span></label>
+              <input type="text" id="f-external" placeholder="https://...">
+            </div>
+          </div>
+
+          <div class="studio-field">
+            <label>Excerpt <span class="hint">(1–2 sentences, shown on cards)</span></label>
+            <textarea id="f-excerpt" style="min-height:80px; font-family: var(--font-sans);"></textarea>
+          </div>
+
+          <div class="studio-field">
+            <label>Tags <span class="hint">(press Enter to add)</span></label>
+            <div class="studio-tags-input" id="f-tags-wrap">
+              <input type="text" id="f-tags-input" placeholder="Add a tag…">
+            </div>
+          </div>
+
+          <div class="studio-field">
+            <label>Cover Image</label>
+            <div class="studio-upload" id="cover-upload-zone">
+              <i class="ri-image-add-line"></i>
+              <span>Click to upload a cover image, or drop one here</span>
+            </div>
+            <input type="file" id="f-cover-file" accept="image/*" style="display:none;">
+            <div class="studio-upload-preview" id="cover-preview" style="display:none;"></div>
+          </div>
+
+          <div class="studio-field">
+            <label>Article Content</label>
+            <div class="studio-mode-toggle">
+              <div class="studio-mode-btn active" data-mode="markdown">Write in Markdown</div>
+              <div class="studio-mode-btn" data-mode="attachments">Attach PDF / Word Document</div>
+            </div>
+
+            <div id="mode-markdown">
+              <textarea id="f-body" class="markdown-body" placeholder="## A heading&#10;&#10;Write the article body in Markdown…"></textarea>
+            </div>
+
+            <div id="mode-attachments" style="display:none;">
+              <div class="studio-upload" id="pdf-upload-zone">
+                <i class="ri-file-pdf-2-line"></i>
+                <span>Click to upload a PDF</span>
+              </div>
+              <input type="file" id="f-pdf-file" accept="application/pdf" style="display:none;">
+              <div class="studio-upload-preview" id="pdf-preview" style="display:none;"></div>
+
+              <div class="studio-upload" id="docx-upload-zone" style="margin-top:1rem;">
+                <i class="ri-file-word-2-line"></i>
+                <span>Click to upload a Word document</span>
+              </div>
+              <input type="file" id="f-docx-file" accept=".doc,.docx" style="display:none;">
+              <div class="studio-upload-preview" id="docx-preview" style="display:none;"></div>
+
+              <div class="studio-field" style="margin-top:1rem;">
+                <label>Short intro text <span class="hint">(optional — shown above the download buttons)</span></label>
+                <textarea id="f-body-attach" style="min-height:80px; font-family: var(--font-sans);"></textarea>
+              </div>
+            </div>
+          </div>
+
+          <div style="display:flex; gap:0.75rem; margin-top:1rem;">
+            <button class="btn btn-primary" id="save-pub-btn"><i class="ri-save-line"></i> Save to Draft</button>
+            <button class="btn btn-outline" id="cancel-edit-btn">Cancel</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Categories -->
+      <div class="studio-panel" id="panel-categories">
+        <div class="studio-panel-header">
+          <div>
+            <h2>Categories</h2>
+            <p>These power the filter buttons on Research and Publications. Slugs should stay lowercase-with-hyphens.</p>
+          </div>
+        </div>
+        <div class="studio-card">
+          <div id="category-list"></div>
+          <div style="display:flex; gap:0.5rem; margin-top:1rem;">
+            <input type="text" id="new-cat-label" placeholder="New category name" style="flex:1; padding:0.6rem 0.9rem; border:1.5px solid var(--border-grey); border-radius:var(--radius-sm);">
+            <button class="btn btn-primary btn-sm" id="add-cat-btn">Add</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Media Library -->
+      <div class="studio-panel" id="panel-media">
+        <div class="studio-panel-header">
+          <div>
+            <h2>Media Library</h2>
+            <p>Upload images once here, reuse them as cover photos anywhere on the site.</p>
+          </div>
+          <button class="btn btn-primary" id="media-upload-btn"><i class="ri-upload-2-line"></i> Upload Images</button>
+          <input type="file" id="media-file-input" accept="image/*" multiple style="display:none;">
+        </div>
+        <div class="studio-media-grid" id="media-grid"></div>
+        <div class="studio-empty" id="media-empty" style="display:none;">
+          <i class="ri-gallery-line"></i>
+          <p>No uploaded images yet.</p>
+        </div>
+      </div>
+
+      <!-- Export -->
+      <div class="studio-panel" id="panel-export">
+        <div class="studio-panel-header">
+          <div>
+            <h2>Export</h2>
+            <p>Bundle your draft into files ready to commit to your site's GitHub repo.</p>
+          </div>
+        </div>
+        <div class="studio-export-box">
+          <h3>Download the update bundle</h3>
+          <p>This generates a .zip with your updated <code>content/articles.json</code>, any new Markdown files, uploaded images, and PDF/Word attachments — all correctly named and placed.</p>
+          <button class="btn btn-gold" id="export-btn"><i class="ri-download-2-line"></i> Download Export Bundle</button>
+          <ol>
+            <li>Unzip the download.</li>
+            <li>Drag its contents into your site's repo on GitHub, overwriting the matching folders (<code>content/</code>, <code>images/</code>, <code>js/articles-data.js</code>).</li>
+            <li>Commit. Vercel redeploys automatically — check the live site in a minute or two.</li>
+          </ol>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="studio-toast" id="studio-toast"></div>
+
+  <script src="../js/articles-data.js"></script>
+  <script src="studio.js"></script>
+</body>
+</html>
